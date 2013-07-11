@@ -1,0 +1,10 @@
+name: check-heroku-log
+version: 0.0.1
+description: Checks heroku for errors
+properties:
+  api-key:
+    type: string
+    required: true
+  app-name:
+    type: string
+    required: true
