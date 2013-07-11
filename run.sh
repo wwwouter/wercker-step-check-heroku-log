@@ -1,11 +1,11 @@
 if [ ! -n "$WERCKER_CHECK_HEROKU_LOG_API_KEY" ]; then
   error 'Please specify api-key property'
-  exit 1
+  return 1
 fi
 
 if [ ! -n "$WERCKER_CHECK_HEROKU_LOG_APP_NAME" ]; then
   error 'Please specify app-name property'
-  exit 1
+  return 1
 fi
 
 cd $WERCKER_STEP_ROOT
@@ -24,6 +24,8 @@ curl -H "Accept: application/json" \
 export LOGPLEX_URL=`cat logplex-url`
 
 curl $LOGPLEX_URL > logplex-result
+
+cat logplex-result
 
 grep "State changed from starting to crashed" logplex-result > logplex-filtered
 

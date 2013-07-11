@@ -1,5 +1,5 @@
 name: check-heroku-log
-version: 0.0.1
+version: 0.0.2
 description: Checks heroku for errors
 properties:
   api-key:
