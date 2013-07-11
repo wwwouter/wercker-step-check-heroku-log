@@ -17,6 +17,8 @@ if [[ $CHECK_STATUS_CODE -ne "200" ]]; then
   return 1
 fi
 
+info "Downloading heroku log"
+
 curl -H "Accept: application/json" \
   -u :$WERCKER_CHECK_HEROKU_LOG_API_KEY \
   -X GET https://api.heroku.com/apps/$WERCKER_CHECK_HEROKU_LOG_APP_NAME/logs\?logplex\=true > logplex-url
